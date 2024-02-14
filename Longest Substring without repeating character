@@ -1,0 +1,20 @@
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        if(s.length()==0) return 0;
+        int p1=0,p2=1,ans=1;
+        Set<Character> set = new HashSet<Character>();
+        set.add(s.charAt(0));
+        while(p2<s.length()){
+            if(!set.contains(s.charAt(p2))){
+                set.add(s.charAt(p2));
+                p2+=1;
+            }
+            else{
+                set.remove(s.charAt(p1));
+                p1+=1;
+            }
+            ans = Math.max(ans, p2-p1);
+        }
+        return ans;
+    }
+}
