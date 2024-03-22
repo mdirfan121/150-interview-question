@@ -1,0 +1,29 @@
+class Solution {
+    public String convert(String s, int numRows) {
+
+        if(numRows==1) return s;
+        String[] arr = new String[numRows];
+        for(int i =0;i<arr.length;i++){
+            arr[i] = "";
+        }
+        boolean flag = false;
+        int count = 0;
+        StringBuilder ans = new StringBuilder();
+        for(int i =0;i<s.length();i++){
+            arr[count]+=s.charAt(i);
+            if(count == 0 || count == arr.length-1){
+                flag = !flag;
+            }
+            if(flag){
+                count+=1;
+            }
+            else{
+                count-=1;
+            }
+        }
+        for(int k =0;k<arr.length;k++){
+            ans.append(arr[k]);
+        }
+        return ans.toString();
+    }
+}
