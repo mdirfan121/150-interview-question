@@ -1,0 +1,28 @@
+public class Solution {
+    public static int[] rotateArray(int []a, int x, String dir) {
+
+        x%=a.length;
+        // Write your code here.
+        if(dir.equals("LEFT")){
+            reverse(a, 0, x-1);
+            reverse(a, x, a.length-1);
+            reverse(a, 0, a.length-1);
+        }
+        else{
+            reverse(a, 0, a.length-x-1);
+            reverse(a, a.length-x, a.length-1);
+            reverse(a, 0 , a.length-1);
+        }
+        return a;
+    }
+
+    static void reverse(int[] x, int start, int end){
+        while(start<end){
+            int temp = x[start];
+            x[start] = x[end];
+            x[end] = temp;
+            start+=1;
+            end-=1;
+        }
+    }
+}
