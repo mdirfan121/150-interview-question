@@ -1,0 +1,19 @@
+public class Solution {  
+
+    public static int secondLargestElement(int[] arr, int n) {
+    	//Your code goes here
+        int ans = Integer.MIN_VALUE;
+        int temp = Integer.MIN_VALUE;
+        for(int i=0;i<n;i++){
+            if(ans < arr[i]){
+                temp = ans;
+                ans = arr[i];
+            }
+            else if(arr[i]> temp && temp !=ans){
+                temp = arr[i];
+            }
+        }
+        return temp;
+    }
+
+}
