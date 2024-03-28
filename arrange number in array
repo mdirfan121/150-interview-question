@@ -1,0 +1,27 @@
+
+public class Solution {
+    
+    public static void arrange(int[] arr, int n) {
+    	//Your code goes here
+        if(n==0) return;
+        int index = 0;
+        int value = 1;
+        arr[index++] = value;
+        while(index<(n+1)/2){
+            arr[index++] = value+2;
+            value = value+2;
+        }
+        if(n%2!=0){
+            value = value-1;
+            arr[index++] = value;
+        }
+        else{
+            value = value+1;
+            arr[index++] = value;
+        }
+        while(index<arr.length){
+            arr[index++]= value-2;
+            value = value-2;
+        }
+    }
+}
